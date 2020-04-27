@@ -135,31 +135,32 @@ class kugou(object):
                  response = browser.page_source
 
                  print(response)
+                 try:
 
-                 song_url = re.findall('<audio class="music" id="myAudio" src="(.*?\.mp3)"',response)
+                     song_url = re.findall('<audio class="music" id="myAudio" src="(.*?\.mp3)"',response)[0]
 
-                 print(song_url)
+                     print(song_url)
 
-                 auName = browser.find_element_by_xpath('/html/body/div[1]/div[3]/div[1]/div[2]/div[2]/p[2]/a').text
-                 name = browser.find_element_by_xpath('/html/body/div[1]/div[3]/div[1]/div[2]/div[1]/span').text
+                     auName = browser.find_element_by_xpath('/html/body/div[1]/div[3]/div[1]/div[2]/div[2]/p[2]/a').text
+                     name = browser.find_element_by_xpath('/html/body/div[1]/div[3]/div[1]/div[2]/div[1]/span').text
 
-                 print(auName)
-                 print(name)
+                     print(auName)
+                     print(name)
 
-                 path = './' + typeName
+                     path = './' + typeName
 
-                 self.saveMusic(song_url, path, auName + "+" + name)
+                     self.saveMusic(song_url, path, auName + "+" + name)
+                 except Exception as e:
+                     print(str(e))
+
+                     continue
 
                  browser.quit()
 
 
-
-
-
-
      def saveMusic(self, songUrl, path, name):
          if self.headers != {}:
-             response = requests.get(songUrl, headers=self.headers).content
+             response = requests.get(songUrl,headers=self.headers).content
          else:
              response = requests.get(url).content
 
@@ -226,170 +227,6 @@ url='https://www.kugou.com/yy/html/rank.html'
 
 if __name__ == '__main__':
 
-    # kg=kugou(url,headers)
-    # kg.start()
+    kg=kugou(url,headers)
+    kg.start()
 
-    # all_files = [f for f in os.listdir('../')]  # 输出根path下的所有文件名到一个列表中
-    # # 对各个文件进行处理
-    # print(all_files)
-    #
-    # all_file = [f for f in os.listdir('qq')]  # 输出根path下的所有文件名到一个列表中
-    # print(all_file)
-
-    url = 'https://www.kugou.com/song/#hash=8244FEAB767CEC0B9C38AE87D129D69D&album_id=27453193'
-
-    chrome_options = webdriver.ChromeOptions()
-    # 使用headless无界面浏览器模式
-    chrome_options.add_argument('--headless') #//增加无界面选项
-    chrome_options.add_argument('--disable-gpu') #//如果不加这个选项，有时定位会出现问题
-
-    # 启动浏览器，获取网页源代码
-    browser = webdriver.Chrome(chrome_options=chrome_options)
-
-    t=time.time()
-    # browser = webdriver.Chrome()
-    browser.get(url)
-
-
-    # ww=WebDriverWait(browser,10).until(EC.visibility_of(browser.find_element(by=By.ID,value='myAudio')))
-    # '''判断元素是否可见，如果可见就返回这个元素'''
-    #
-    # print(ww)
-
-    response = browser.page_source
-
-
-    print(f"browser text = {response}")
-    pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#
-# import requests
-# import  json
-# import pprint
-# from lxml import etree
-# url='https://www.kugou.com/'
-#
-#
-#
-#
-#
-#
-# # url = 'https://wwwapi.kugou.com/yy/index.php?r=play/getdata&hash=46747EB410185C370ECC918021690871&mid=de37a1cfd40c173f2820dfe14f530c24'
-#
-#
-# headers={
-#     # 'referer': 'https://www.kugou.com/song/15qg58b7.html',
-#     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.92 Safari/537.3'
-#
-#
-#
-# }
-# response = requests.get(url,headers=headers)
-# res=response.text
-# html = etree.HTML(res)
-# rr=html.xpath('//*[@id="SongtabContent"]/ul[1]/li/@data')
-#
-# print(len(rr),rr)
-#
-# HashList=[]
-# def getHash(rr):
-#     for r in rr:
-#
-#         d= json.loads(r)
-#
-#         # print(type(rr))
-#         # pprint.pprint(rr)
-#
-#         yield d['Hash'],d['FileName']
-#
-# for hash in getHash(rr):
-#
-#     url = 'https://wwwapi.kugou.com/yy/index.php?r=play/getdata&hash={}&mid=de37a1cfd40c173f2820dfe14f530c24'.format(hash[0])
-#
-#     response = requests.get(url, headers=headers)
-#     res = response.text
-#
-#     rr= json.loads(res)
-#
-#     print(type(rr))
-#     # pprint.pprint(rr)
-#     world = rr['data']['lyrics']
-#     lurl=rr['data']['play_url']
-#     name = hash[1].split('-')[0].strip()
-#     print(name)
-#     response = requests.get(lurl, headers=headers)
-#     res = response.content
-#
-#     with open(name+'.mp3','wb') as f:
-#         f.write(res)
-#
-#
-#
-#
-#
-#
-#
-#
-# #
-# # from selenium import webdriver
-# # import re
-# # import time
-# #
-# # from selenium.webdriver.support.wait import WebDriverWait
-# # from selenium.webdriver.common.by import By
-# # from selenium.webdriver.support import expected_conditions as EC
-# #
-# # chrome_options = webdriver.ChromeOptions()
-# # # 使用headless无界面浏览器模式
-# # chrome_options.add_argument('--headless') #//增加无界面选项
-# # chrome_options.add_argument('--disable-gpu') #//如果不加这个选项，有时定位会出现问题
-# #
-# # # 启动浏览器，获取网页源代码
-# # browser = webdriver.Chrome(chrome_options=chrome_options)
-# #
-# # t=time.time()
-# # # browser = webdriver.Chrome()
-# # browser.get(url)
-# #
-# #
-# # # ww=WebDriverWait(browser,10).until(EC.visibility_of(browser.find_element(by=By.ID,value='myAudio')))
-# # # '''判断元素是否可见，如果可见就返回这个元素'''
-# # #
-# # # print(ww)
-# #
-# # response = browser.page_source
-# #
-# #
-# # # print(f"browser text = {response}")
-# #
-# # # print(type(response))
-# #
-# # tt = re.findall('<audio class="music" id="myAudio" src="(.*?\.mp3)"',response)
-# #
-# # print(time.time()-t)
-# # print(tt)
-# #
-# # browser.quit()
-# #
-# #
