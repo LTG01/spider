@@ -47,3 +47,5 @@ url='https://so.gushiwen.org/user/login.aspx?from=http%3a%2f%2fso.gushiwen.org%2
 res=requests.post(url,data=data,headers=headers).text
 with open('login.html','w',encoding='utf-8') as f:
     f.write(res)
+
+    

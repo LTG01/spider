@@ -19,7 +19,8 @@ sec-fetch-mode: navigate
 sec-fetch-site: same-origin
 sec-fetch-user: ?1
 upgrade-insecure-requests: 1
-user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36'''
+user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36
+'''
 h = bytes(headers, encoding="utf-8")
 headers = headers_raw_to_dict(h)
 
