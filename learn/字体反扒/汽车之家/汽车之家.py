@@ -1,7 +1,7 @@
 import requests
 from lxml import etree
 from fontTools.ttLib import TTFont
-
+import pytesseract
 import re
 
 from PIL import Image, ImageFont, ImageDraw
@@ -16,7 +16,7 @@ def get_html(url,headers):
     response.encoding='gb2312'
     html=response.text
 
-    with open('1.html','w') as f:
+    with open('1.html','w',encoding='utf-8') as f:
         f.write(html)
 
     return html
@@ -31,6 +31,7 @@ def get_ttf(html):
     </style>
     :return:
     '''
+    pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 
     #提取路径
     ttf_url ="http:"+ re.findall("format\('embedded-opentype'\),url\('(.*?)'\) format\('woff'\);",html)[0]
@@ -119,13 +120,13 @@ word_list=['三','七','多','的','近','上','大','是','呢','更','着','�
 
 def read(name):
     text=''
-    with open(name,'r') as f:
+    with open(name,'r',encoding='utf-8') as f:
         text = f.read()
     return text
 
 def write(name,content):
     text=''
-    with open(name,'w') as f:
+    with open(name,'w',encoding='utf-8') as f:
         f.write(content)
 
 if __name__=="__main__":

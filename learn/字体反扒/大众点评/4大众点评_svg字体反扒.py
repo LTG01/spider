@@ -30,7 +30,7 @@ def get_html(url,headers,t=''):
     shopname = selector.css('.shop-name::text').get()
 
     name = './html/'+shopname+str(t)+'.html'
-    with open(name, 'w') as f:
+    with open(name, 'w',encoding='utf-8') as f:
         f.write(html_response)
     return html_response
 
@@ -271,7 +271,7 @@ def getClassNames(dic,html_content,t=''):
     shopname = selector.css('.shop-name::text').get()
 
     name='./html/替换之后的-'+shopname+ str(t)+ '.html'
-    with open(name,'w') as f:
+    with open(name,'w',encoding='utf-8') as f:
         f.write(html_content)
     return html_content
 
@@ -286,7 +286,7 @@ if __name__=="__main__":
     User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36
     Cookie: _lxsdk_cuid=1725e53898cc8-00a56221c9380d-1b386257-13c680-1725e53898dc8; _lxsdk=1725e53898cc8-00a56221c9380d-1b386257-13c680-1725e53898dc8; Hm_lvt_602b80cf8079ae6591966cc70a3940e7=1590720433; _hc.v=ccc1d798-4f6d-50c4-d97b-3014a6707c85.1590720433; lgtoken=03b3f6a74-b893-46ba-a633-151609c7f68b; dplet=44ebdbaf1374446b79f584f3b3e0a3ea; dper=89f7587fe06f9b5a8127a798f3054d4e53e310e3d97392ae9d1cb4e6ec9fd2220296ffb08024e52137c90d24797d02b200ac2e1a2bc4c2fcbb7ae65522d6c966f01a276961001386332b0d9e0c0e25983b3d8e9692d22dde7b66f6f44932ccb1; ll=7fd06e815b796be3df069dec7836c3df; ua=%E9%80%86%E6%B5%81%E8%80%8C%E4%B8%8A_2962; ctu=fe900529419a03962c38d2c1153046d0867bdba9b652361c8b54a18a3abc6755; Hm_lpvt_602b80cf8079ae6591966cc70a3940e7=1590720570; _lxsdk_s=1725e53898d-b38-ab0-c11%7C%7C41
     '''
-    t = time.strftime("%Y-%m-%d-%H:%M:%S", time.localtime())
+    t = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
 
     html_content =get_html(url,headers,t=t)
     css_content =get_css(html_content)

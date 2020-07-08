@@ -13,8 +13,10 @@ url = 'https://kyfw.12306.cn/otn/login/init'
 drive = webdriver.Chrome()
 # drive.maximize_window()
 drive.get(url)
-time.sleep(2)
 
+time.sleep(2)
+drive.maximize_window()
+time.sleep(2)
 #截图登陆界面，保存为12306.png
 drive.save_screenshot('12306.png')
 time.sleep(2)
@@ -29,9 +31,9 @@ size = img_code.size
 print(size)
 
 #验证码图片在整个截图中占据的位置
-rangle=(int(location['x'])+320,int(location['y'])+270,int(location['x']+size['width'])*2,int(location['y']+size['height'])*2)
-# rangle=(int(location['x']),int(location['y']),int(location['x']+size['width']),int(location['y']+size['height']))
-
+# rangle=(int(location['x'])+320,int(location['y'])+270,int(location['x']+size['width'])*2,int(location['y']+size['height'])*2)
+rangle=(int(location['x']),int(location['y']),int(location['x']+size['width']),int(location['y']+size['height']))
+# rangle=(int(location['x'])*2,int(location['y'])*2,int(location['x']+size['width'])*2,int(location['y']+size['height'])*2)
 code_img_name='code.png'
 
 img = Image.open('./12306.png')
@@ -58,11 +60,11 @@ for point in pointlist:
 
     ActionChains(drive).move_to_element_with_offset(img_code,point[0],point[1]).click().perform()
     time.sleep(0.5)
-drive.find_element_by_id('username').send_keys('')
+drive.find_element_by_id('username').send_keys('17628040175')
 time.sleep(2)
-drive.find_element_by_id('password').send_keys('')
+drive.find_element_by_id('password').send_keys('2014LTG')
 time.sleep(2)
-drive.find_element_by_id('loginSub').send_keys('')
+drive.find_element_by_id('loginSub').click()
 time.sleep(10)
 
 

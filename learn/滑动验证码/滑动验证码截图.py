@@ -22,11 +22,7 @@ def get_image(driver,i=1):
     bottom=top+size['height']
     snap_obj=get_snap(driver,i)
     print(left,top,right,bottom)
-    # img_obj=snap_obj.crop((left,top,right,bottom))
-    img_obj = snap_obj.crop((913, 377 ,1471 ,936))
-    # key=Image.new("RGB",(260,116))
-    #
-    # key.paste(img_obj,(0,0))
+    img_obj=snap_obj.crop((left,top,right,bottom))
     img_obj.save('snap9{}.png'.format(i))
 
     return img_obj
@@ -45,16 +41,9 @@ def get_image(driver,i=1):
 #     driver.close()
 def get_distance(img1,img2):
 
-    start_x=140
-    threhold=60#阈值
+    start_x=60
+    threhold=100#阈值
 
-    print(img1.size)
-    # snap_obj=Image.open(img1)
-    # img1.show()
-
-    print(img2.size)
-    # snap_obj2=Image.open(img2)
-    # img2.show()
     for x in range(start_x,img1.size[0]):
         for y in range(img1.size[1]):
             rgb1=img1.load()[x,y]
@@ -91,11 +80,11 @@ try:
     driver.implicitly_wait(3)
     # driver.fullscreen_window()
     # driver.maximize_window()
-    input_username=driver.find_element_by_id('LoginName')
-    input_password=driver.find_element_by_id('Password')
+    input_username=driver.find_element_by_id('mat-input-0')
+    input_password=driver.find_element_by_id('mat-input-1')
     input_username.send_keys('928480709')
     input_password.send_keys('dfcver1112223334')
-    submitBtn=driver.find_element_by_id('submitBtn')
+    submitBtn=driver.find_element_by_css_selector('body > app-root > div > mat-sidenav-container > mat-sidenav-content > div > div > app-sign-in > app-content-container > mat-card > div > form > div > button > span')
     submitBtn.click()
     time.sleep(2)#等待验证码加载
     driver.implicitly_wait(10)

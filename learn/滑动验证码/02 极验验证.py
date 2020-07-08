@@ -6,6 +6,7 @@ from io import BytesIO
 import requests
 from PIL import Image
 from selenium import webdriver
+from selenium.webdriver import ActionChains
 
 # 创建一个浏览器对象
 driver = webdriver.Chrome()
@@ -18,8 +19,44 @@ hover = driver.find_element_by_css_selector('.gt_slider_knob')
 
 """下载图片"""
 
+def get_distance(img1,img2):
 
-def get_distance(image1, image2):
+    start_x=60
+    threhold=100#阈值
+
+    for x in range(start_x,img1.size[0]):
+        for y in range(img1.size[1]):
+            rgb1=img1.load()[x,y]
+            rgb2=img2.load()[x,y]
+            res1=abs(rgb1[0]-rgb2[0])
+            res2=abs(rgb1[1]-rgb2[1])
+            res3=abs(rgb1[2]-rgb2[2])
+            if not (res1<threhold and res2<threhold and res3<threhold):
+                return x-5
+
+def get_track(distance):
+    distance+=20
+    v0=2
+    s=0
+    t=0.4
+    mid=distance*3/5
+    forward_tracks=[]
+    while s<distance:
+        if s<mid:
+            a=2
+        else:
+            a=-3
+        v=v0
+        tance=v*t+0.5*a*(t**2)
+        tance=round(tance)
+        s+=tance
+        v0=v+a*t
+        forward_tracks.append(tance)
+    back_tracks = [-1, -1, -1, -2, -2, -2, -3, -3, -2, -2, -1]  # 20
+    return {"forward_tracks": forward_tracks, 'back_tracks': back_tracks}
+
+
+def get_distance2(image1, image2):
     """
     拿到滑动验证码需要移动的距离
     :param image1:没有缺口的图片对象
@@ -66,7 +103,6 @@ def get_image(driver, div_path):
         image_url = result[0][0]
         # 将当前碎片信息添加到图片位置信息列表
         location_list.append(location)
-
     print('==================================')
     # 获取图片,
     image_url = image_url.replace('webp', 'jpg')
@@ -123,7 +159,7 @@ def merge_image(image_file, location_list):
     return new_im
 
 
-def get_track(distance):
+def get_track2(distance):
     """
     拿到移动轨迹，模仿人的滑动行为，先匀加速后匀减速
     匀变速运动基本公式：
@@ -200,19 +236,22 @@ print(distance)
 # 4. 构建移动轨迹
 tracks = get_track(distance)
 print(tracks)
-"""滑动动作链"""
-# 使用动作链进行滑动验证
-action = webdriver.ActionChains(driver)
-# 点击, 并且不释放
-action.click_and_hold(hover).perform()
 
-for track in tracks:
-    # 操作本身就会有延时
-    # 只要动作不像机器就没事
-    action.move_by_offset(track, 0)
-# 释放
-action.release().perform()
 
+tracks_dic = get_track(distance)
+ActionChains(driver).click_and_hold(hover).perform()
+forword_tracks = tracks_dic['forward_tracks']
+back_tracks = tracks_dic['back_tracks']
+for forword_track in forword_tracks:
+    ActionChains(driver).move_by_offset(xoffset=forword_track, yoffset=0).perform()
+time.sleep(0.2)
+for back_tracks in back_tracks:
+    ActionChains(driver).move_by_offset(xoffset=back_tracks, yoffset=0).perform()
+print(forword_tracks)
+ActionChains(driver).move_by_offset(xoffset=-3, yoffset=0).perform()
+ActionChains(driver).move_by_offset(xoffset=3, yoffset=0).perform()
+time.sleep(0.3)
+ActionChains(driver).release().perform()
 """
 多敲多练, 理解代码
 """

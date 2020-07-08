@@ -1,39 +1,77 @@
-# import random
-# print(random.randint(1,5))
-
-# t=['a','b']
-# b=['t','a', 'b','c']
-# for i in range(len(b)):
-#     print(i,b[i])
-#     if b[i] in t :
-#         i+=1
-
+#--coding:
 
 import requests
-import time
 
-from lxml import etree
-url='http://fund.eastmoney.com/trade/hh.html'
-i=0
-while 1:
-    html=requests.get(url).text
+from copyheaders import headers_raw_to_dict
 
-    html = html.encode("ISO-8859-1")
-    # html = html.encode("utf-8")
-    response = etree.HTML(html)
+import parsel
+import re
+import pprint
 
-    print(response)
-    t=response.xpath('//table[@class="mainTb"]/tbody/tr')
-    # t = res.css('table tbody tr').extract()
-    print(len(t),t)
-    for item in t:
-        name = item.xpath('./td/text()|./td/a/text()|./td/span/text()')
-        # tt=name[0].encode('ISO-8859-1')
-        print(len(name),name)
-    i+=1
-    print(str(i)+'  #'*100)
+cc_url= 'http://s3plus.meituan.net/v1/mss_0a06a471f9514fc79c981b5466f56b91/svgtextcss/0459b8acc4f8ab52744631cbdbd26ef4.svg'
+#
+# res = requests.get(cc_url).text
 
-    time.sleep(1)
+res=''
+with  open('cc_tz.html','r') as f:
+
+    res=f.read()
+
+
+#
+xlist = re.findall('<text x="(.*?)".*?>(.*?)</text>',res)[0]
+xs = xlist[0].strip().split(' ')
+xindex=[int(i) for i in xs]
+value = list(xlist[1])
 
 
 
+def getvalue(pos,xindex,value):
+    for index in range(len(xindex)):
+        if pos<= xindex[index]:
+            return value[index]
+
+
+def getvalue2(posXY, index, value):
+    for xindex in range(len(index)):
+        if posXY[0] <= index[xindex]:
+            return value[xindex]
+
+
+html_content = ''
+
+with open('dazhong1.html','r') as f:
+    html_content = f.read()
+
+
+selector = parsel.Selector(html_content)
+
+dic={
+'cc': {'tz': {'tz0sl': (78.0, 26.0),
+               'tz6ls': (64.0, 26.0),
+               'tzh4y': (22.0, 26.0),
+               'tzjs2': (8.0, 26.0),
+               'tzmwx': (120.0, 26.0),
+               'tzryg': (50.0, 26.0),
+               'tzu2w': (134.0, 26.0),
+               'tzvf1': (36.0, 26.0),
+               'tzvwf': (105.0, 26.0),
+               'tzwsv': (92.0, 26.0)},
+        'url': 'http://s3plus.meituan.net/v1/mss_0a06a471f9514fc79c981b5466f56b91/svgtextcss/0459b8acc4f8ab52744631cbdbd26ef4.svg'}
+}
+
+#<cc class="tz6ls"></cc>
+
+cc = selector.css('.phone-info cc::attr(class)').getall()
+num=''
+for c in cc:
+
+    posx = dic.get('cc',{}).get('tz',{}).get(c)
+    print(posx)
+    key = getvalue2(posx,xindex,value)
+    html_content = html_content.replace('<cc class="'+c+'"></cc>',key)
+    num+=str(key)
+print(num)
+
+with open('da2.html','w') as f:
+    f.write(html_content)

@@ -8,7 +8,7 @@ from copyheaders import headers_raw_to_dict
 import re
 from PIL import Image, ImageFont, ImageDraw
 import numpy
-
+import pytesseract
 # 小说url
 url = 'http://www.dianping.com/shop/22314796'
 
@@ -51,7 +51,7 @@ with open(name, 'wb') as f:
 font = TTFont(name)
 font.saveXML('11.xml')
 
-# pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 
 # 打开文件
 font = TTFont(name)
@@ -61,11 +61,11 @@ print(code_list)
 
 """逆向部分,将特殊字体绘制到一张图片上去"""
 # 新建一张图片
-im = Image.new("RGB", (1800, 1800), (255, 255, 255))
+im = Image.new("RGB", (1800, 1500), (255, 255, 255))
 # 绘制图片的对象
 image_draw = ImageDraw.Draw(im)
 # 绘制图片中, 显示的字体
-font = ImageFont.truetype(name, 40)
+font = ImageFont.truetype('2bb1bd8a.woff', 40)
 
 count = 15
 # 将特殊编码等分为15分

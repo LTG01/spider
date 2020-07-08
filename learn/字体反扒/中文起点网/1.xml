@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ttFont sfntVersion="\x00\x01\x00\x00" ttLibVersion="4.8">
+<ttFont sfntVersion="\x00\x01\x00\x00" ttLibVersion="4.12">
 
   <GlyphOrder>
     <!-- The 'id' attribute is only for humans; it is ignored when parsed. -->
@@ -21,12 +21,12 @@
     <!-- Most of this table will be recalculated by the compiler -->
     <tableVersion value="1.0"/>
     <fontRevision value="2.98"/>
-    <checkSumAdjustment value="0x2f314d8e"/>
+    <checkSumAdjustment value="0xf394d0e"/>
     <magicNumber value="0x5f0f3cf5"/>
     <flags value="00001000 00011011"/>
     <unitsPerEm value="2048"/>
     <created value="Mon Aug  6 13:54:50 1990"/>
-    <modified value="Thu Feb  1 21:46:47 2018"/>
+    <modified value="Thu Feb  1 21:46:48 2018"/>
     <xMin value="26"/>
     <yMin value="-26"/>
     <xMax value="1280"/>
@@ -114,8 +114,8 @@
     <ulUnicodeRange4 value="00000000 00000000 00000000 00000000"/>
     <achVendID value="Mono"/>
     <fsSelection value="00000000 01000000"/>
-    <usFirstCharIndex value="34976"/>
-    <usLastCharIndex value="34987"/>
+    <usFirstCharIndex value="34959"/>
+    <usLastCharIndex value="34970"/>
     <sTypoAscender value="1491"/>
     <sTypoDescender value="-431"/>
     <sTypoLineGap value="307"/>
@@ -153,18 +153,18 @@
     </cmap_format_0>
     <cmap_format_4 platformID="3" platEncID="1" language="0">
     </cmap_format_4>
-    <cmap_format_12 platformID="3" platEncID="10" format="12" reserved="0" length="124" language="0" nGroups="9">
-      <map code="0x188a0" name="one"/><!-- TANGUT COMPONENT-161 -->
-      <map code="0x188a2" name="eight"/><!-- TANGUT COMPONENT-163 -->
-      <map code="0x188a3" name="two"/><!-- TANGUT COMPONENT-164 -->
-      <map code="0x188a4" name="period"/><!-- TANGUT COMPONENT-165 -->
-      <map code="0x188a5" name="zero"/><!-- TANGUT COMPONENT-166 -->
-      <map code="0x188a6" name="three"/><!-- TANGUT COMPONENT-167 -->
-      <map code="0x188a7" name="nine"/><!-- TANGUT COMPONENT-168 -->
-      <map code="0x188a8" name="four"/><!-- TANGUT COMPONENT-169 -->
-      <map code="0x188a9" name="five"/><!-- TANGUT COMPONENT-170 -->
-      <map code="0x188aa" name="seven"/><!-- TANGUT COMPONENT-171 -->
-      <map code="0x188ab" name="six"/><!-- TANGUT COMPONENT-172 -->
+    <cmap_format_12 platformID="3" platEncID="10" format="12" reserved="0" length="136" language="0" nGroups="10">
+      <map code="0x1888f" name="one"/><!-- TANGUT COMPONENT-144 -->
+      <map code="0x18891" name="six"/><!-- TANGUT COMPONENT-146 -->
+      <map code="0x18892" name="nine"/><!-- TANGUT COMPONENT-147 -->
+      <map code="0x18893" name="three"/><!-- TANGUT COMPONENT-148 -->
+      <map code="0x18894" name="four"/><!-- TANGUT COMPONENT-149 -->
+      <map code="0x18895" name="eight"/><!-- TANGUT COMPONENT-150 -->
+      <map code="0x18896" name="zero"/><!-- TANGUT COMPONENT-151 -->
+      <map code="0x18897" name="period"/><!-- TANGUT COMPONENT-152 -->
+      <map code="0x18898" name="two"/><!-- TANGUT COMPONENT-153 -->
+      <map code="0x18899" name="seven"/><!-- TANGUT COMPONENT-154 -->
+      <map code="0x1889a" name="five"/><!-- TANGUT COMPONENT-155 -->
     </cmap_format_12>
   </cmap>
 

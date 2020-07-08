@@ -18,6 +18,7 @@ headers = headers_raw_to_dict(bytes(headers, encoding="utf-8"))
 
 response = requests.get(url,headers=headers)
 text= response.text
+print(response.apparent_encoding)
 with open('1.html','w',encoding='utf-8') as f:
     f.write(text)
 
@@ -77,7 +78,7 @@ print(font_value)
 for key,value in font_value.items():
     text =text.replace("&#"+str(key)+";",str(value))
 
-with open('2.html','w') as f:
+with open('2.html','w',encoding='utf-8') as f:
     f.write(text)
     
 
