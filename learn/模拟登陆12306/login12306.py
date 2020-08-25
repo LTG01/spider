@@ -42,8 +42,11 @@ print(rangle)
 frame = img.crop(rangle)
 frame.save(code_img_name)
 
-chaojiying = Chaojiying_Client('yiqieanran01', 'chaojiying1qazxsw2', '904611')  # 用户中心>>软件ID 生成一个替换 96001
-im = open('code.png', 'rb').read()  # 本地图片文件路径 来替换 a.jpg 有时WIN系统须要//
+chaojiying = Chaojiying_Client('yiqieanran01', '1qazxsw23edc', '904611')  # 用户中心>>软件ID 生成一个替换 96001
+
+
+im = open(r'C:\LTG\code\spider\learn\模拟登陆12306\code.png', 'rb').read()  # 本地图片文件路径 来替换 a.jpg 有时WIN系统须要//
+
 code=chaojiying.PostPic(im, 9004)['pic_str']
 print(code)
 #227,230|318,185

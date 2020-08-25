@@ -7,7 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/learn/模拟登陆12306" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.6 (venv)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.7 (ven) (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">
