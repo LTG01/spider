@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6c8f780-3d07-44c1-bdb8-aa72c43a8c51" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/spider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/spider.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learn/字体反扒/中文起点网/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/learn/字体反扒/中文起点网/1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learn/字体反扒/中文起点网/1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/learn/字体反扒/中文起点网/1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learn/字体反扒/中文起点网/2.html" beforeDir="false" afterPath="$PROJECT_DIR$/learn/字体反扒/中文起点网/2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learn/字体反扒/大众点评/ltg.py" beforeDir="false" afterPath="$PROJECT_DIR$/learn/字体反扒/大众点评/ltg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learn/字体反扒/猫眼/maoyan.html" beforeDir="false" afterPath="$PROJECT_DIR$/learn/字体反扒/猫眼/maoyan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learn/字体反扒/猫眼/maoyan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/learn/字体反扒/猫眼/maoyan.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learn/字体反扒/猫眼/maoyan2.html" beforeDir="false" afterPath="$PROJECT_DIR$/learn/字体反扒/猫眼/maoyan2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learn/模拟登陆12306/12306.png" beforeDir="false" afterPath="$PROJECT_DIR$/learn/模拟登陆12306/12306.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learn/模拟登陆12306/chaojiying_Python/chaojiying.py" beforeDir="false" afterPath="$PROJECT_DIR$/learn/模拟登陆12306/chaojiying_Python/chaojiying.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learn/模拟登陆12306/code.png" beforeDir="false" afterPath="$PROJECT_DIR$/learn/模拟登陆12306/code.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learn/模拟登陆12306/login12306.py" beforeDir="false" afterPath="$PROJECT_DIR$/learn/模拟登陆12306/login12306.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tt.py" beforeDir="false" afterPath="$PROJECT_DIR$/tt.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,8 +59,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/learn/字体反扒/汽车之家/替换之后.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="1957" selection-start-line="1957" selection-end-line="1957" />
+            <state relative-caret-position="1701">
+              <caret line="1965" selection-start-line="1965" selection-end-line="1965" />
               <folding>
                 <element signature="e#68806#68828#0" expanded="true" />
                 <element signature="e#68843#68878#0" expanded="true" />
@@ -1452,7 +1438,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="2" />
     <option name="width" value="2570" />
     <option name="height" value="1532" />
@@ -1465,6 +1451,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -1472,16 +1459,10 @@
               <item name="spider" type="b2602c69:ProjectViewProjectNode" />
               <item name="spider" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="spider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spider" type="462c0819:PsiDirectoryNode" />
-              <item name="learn" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1669,17 +1650,18 @@
       <workItem from="1598197310615" duration="2078000" />
       <workItem from="1598238278561" duration="1797000" />
       <workItem from="1598327464960" duration="67000" />
+      <workItem from="1598357098702" duration="655000" />
+      <workItem from="1598364779109" duration="603000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80773000" />
+    <option name="totallyTimeSpent" value="82031000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="0" width="1285" height="766" extended-state="1" />
-    <editor active="true" />
+    <frame x="-6" y="-6" width="1293" height="773" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17848411" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18218623" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -3082,8 +3064,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/learn/字体反扒/汽车之家/替换之后.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="1957" selection-start-line="1957" selection-end-line="1957" />
+        <state relative-caret-position="1701">
+          <caret line="1965" selection-start-line="1965" selection-end-line="1965" />
           <folding>
             <element signature="e#68806#68828#0" expanded="true" />
             <element signature="e#68843#68878#0" expanded="true" />
